@@ -4,14 +4,14 @@ A full-stack news app that displays the latest **US media/entertainment headline
 
 - Frontend: **React** (Bootstrap UI)
 - Backend: **Vercel Serverless Function** (`/api/news`)
-- Data source: **NewsAPI** (Top headlines → US entertainment)
+- Data source: **Mediastack** (Live news → US entertainment)
 
 ## Tech Stack
 
 - React
 - JavaScript
 - Vercel Serverless Functions
-- NewsAPI
+- Mediastack
 - Bootstrap
 
 ## Features
@@ -57,7 +57,7 @@ npm install
 Create a `.env` file in the project root:
 
 ```bash
-NEWS_API_KEY=your_api_key_here
+MEDIASTACK_ACCESS_KEY=your_access_key_here
 ```
 
 You can copy from `.env.example`.
@@ -86,4 +86,4 @@ This runs the React frontend and the serverless API together (recommended for lo
 ## Notes
 
 - No backend server is required (fully serverless).
-- Keep your NewsAPI key private. It must only be configured as an environment variable.
+- Keep your Mediastack access key private. It must only be configured as an environment variable.
