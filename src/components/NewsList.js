@@ -7,10 +7,16 @@ function NewsList() {
     const fetchNews = async () => {
       try {
         const res = await fetch("/api/news");
-        const data = await res.json();
-        setArticles(data.articles);
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) {
+          console.error("News API error:", data);
+          setArticles([]);
+          return;
+        }
+        setArticles(Array.isArray(data?.articles) ? data.articles : []);
       } catch (error) {
         console.error("Failed to fetch news:", error);
+        setArticles([]);
       }
     };
 
