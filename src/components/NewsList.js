@@ -24,22 +24,28 @@ function NewsList() {
   }, []);
 
   return (
-    <div className="container mt-4">
-      <div className="row">
+    <div className="mt-4">
+      <div className="row g-4">
         {articles.map((a, i) => (
           <div className="col-md-4 mb-4" key={i}>
-            <div className="card h-100">
+            <div className="card news-card h-100">
               {a.urlToImage && (
                 <img src={a.urlToImage} className="card-img-top" alt={a.title} />
               )}
 
               <div className="card-body d-flex flex-column">
-                <h5 className="card-title">{a.title}</h5>
-                <p className="card-text">{a.description}</p>
+                <div className="news-meta mb-2">
+                  {(a.source && a.source.name) ? a.source.name : "Source"}{" "}
+                  {a.publishedAt ? `• ${new Date(a.publishedAt).toLocaleDateString()}` : ""}
+                </div>
+                <h5 className="card-title news-title">{a.title}</h5>
+                {a.description ? (
+                  <p className="card-text news-desc">{a.description}</p>
+                ) : null}
 
                 <a
                   href={a.url}
-                  className="btn btn-primary mt-auto"
+                  className="btn btn-outline-dark news-link mt-auto"
                   target="_blank"
                   rel="noreferrer"
                 >
